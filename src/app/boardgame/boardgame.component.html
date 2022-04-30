@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-center align-items-center" *ngIf="boardgame">
+    <div *ngFor="let row of boardgame">
+        <div class="square" *ngFor="let col of row">
+            {{ col }}
+        </div>
+    </div>
+</div>
