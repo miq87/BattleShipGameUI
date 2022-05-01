@@ -8,15 +8,37 @@ import { BattleShipService } from '../services/battle-ship.service';
 })
 export class BoardgameComponent implements OnInit {
 
-  public boardgame: number[][]
+  boardgame: number[][]
+  alphabet = "ABCDEFGHIJ"
+  alphabetArray: any
+  selectedRow = 0
+  selectedCol = 0
 
   constructor(private battleShipService: BattleShipService) { }
 
   ngOnInit(): void {
+    this.alphabetArray = Array.from(this.alphabet)
     this.battleShipService.getBoardGame().subscribe({
       next: (v: any) => {
         this.boardgame = v
-        console.log(this.boardgame)
+      },
+      error: () => console.error("Problem with loading boardgame")
+    })
+  }
+
+  hit() {
+    this.battleShipService.hit(this.selectedRow, this.selectedCol).subscribe({
+      next: (v: any) => {
+        this.boardgame = v
+      },
+      error: () => console.error("Problem with loading boardgame")
+    })
+  }
+
+  generate() {
+    this.battleShipService.generateBoardGame().subscribe({
+      next: (v: any) => {
+        this.boardgame = v
       },
       error: () => console.error("Problem with loading boardgame")
     })

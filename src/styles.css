@@ -1,7 +1,39 @@
-.square {
-    width: 30px;
-    height: 30px;
-    background-color: blanchedalmond;
-    border: 2px solid #fff;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    color: #000;
     text-align: center;
+    line-height: 32px;
+    border-radius: 50%;
+}
+.index {
+    background-color: black;
+    color: #fff;
+}
+.blank {
+    background-color: transparent;
+}
+.sea {
+    background-color: aqua;
+}
+.ship {
+    background-color: blue;
+    color: #fff;
+}
+.hitted {
+    background-color: green;
+    color: #fff;
+}
+.missed {
+    background-color: red;
+    color: #fff;
 }

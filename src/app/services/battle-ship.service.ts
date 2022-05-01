@@ -21,4 +21,8 @@ export class BattleShipService {
     return this.http.get(environment.apiUrl + "/generate")
   }
 
+  hit(row: number, col: number) {
+    return this.http.get(environment.apiUrl + "/hit/" + row + "/" + col)
+  }
+
 }
