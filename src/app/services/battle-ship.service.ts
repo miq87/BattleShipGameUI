@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { BoardGame } from '../model/boardgame';
 import { Coordinates } from '../model/coordinates';
 
 @Injectable({
@@ -11,19 +12,19 @@ export class BattleShipService {
   constructor(private http: HttpClient) { }
 
   getBoardGame() {
-    return this.http.get(environment.apiUrl)
+    return this.http.get<BoardGame>(environment.apiUrl)
   }
 
   resetBoardGame() {
-    return this.http.get(environment.apiUrl + "/reset")
+    return this.http.get<BoardGame>(environment.apiUrl + "/reset")
   }
 
   generateBoardGame() {
-    return this.http.get(environment.apiUrl + "/generate")
+    return this.http.get<BoardGame>(environment.apiUrl + "/generate")
   }
 
   hit(coordinates: Coordinates) {
-    return this.http.post(environment.apiUrl + "/hit", coordinates)
+    return this.http.post<BoardGame>(environment.apiUrl + "/hit", coordinates)
   }
 
 }

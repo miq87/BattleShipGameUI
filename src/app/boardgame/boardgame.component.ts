@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BoardGame } from '../model/boardgame';
 import { Coordinates } from '../model/coordinates';
 import { BattleShipService } from '../services/battle-ship.service';
 
@@ -9,11 +10,10 @@ import { BattleShipService } from '../services/battle-ship.service';
 })
 export class BoardgameComponent implements OnInit {
 
-  boardgame: number[][]
+  //boardgame: number[][]
+  boardGame: BoardGame;
   alphabet = "ABCDEFGHIJ"
   alphabetArray: any
-  selectedRow = 0
-  selectedCol = 0
   coordinates: Coordinates = new Coordinates(0, 0)
 
   constructor(private battleShipService: BattleShipService) { }
@@ -21,17 +21,8 @@ export class BoardgameComponent implements OnInit {
   ngOnInit(): void {
     this.alphabetArray = Array.from(this.alphabet)
     this.battleShipService.getBoardGame().subscribe({
-      next: (v: any) => {
-        this.boardgame = v
-      },
-      error: () => console.error("Problem with loading boardgame")
-    })
-  }
-
-  hit() {
-    this.battleShipService.hit(this.coordinates).subscribe({
-      next: (v: any) => {
-        this.boardgame = v
+      next: (v) => {
+        this.boardGame = v
       },
       error: () => console.error("Problem with loading boardgame")
     })
@@ -39,8 +30,18 @@ export class BoardgameComponent implements OnInit {
 
   generate() {
     this.battleShipService.generateBoardGame().subscribe({
-      next: (v: any) => {
-        this.boardgame = v
+      next: (v) => {
+        this.boardGame = v
+      },
+      error: () => console.error("Problem with loading boardgame")
+    })
+  }
+
+  hit() {
+    this.battleShipService.hit(this.coordinates).subscribe({
+      next: (v) => {
+        this.boardGame = v
+        console.log(v)
       },
       error: () => console.error("Problem with loading boardgame")
     })

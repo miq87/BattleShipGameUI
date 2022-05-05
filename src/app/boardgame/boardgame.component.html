@@ -2,12 +2,12 @@
   <h1>BATTLESHIP GAME</h1>
 </div>
 <div class="d-flex justify-content-center">
-  <div class="d-flex flex-column" *ngIf="boardgame">
+  <div class="d-flex flex-column" *ngIf="boardGame">
     <div class="d-flex flex-row">
       <div class="square blank"></div>
       <div class="square index" *ngFor="let alpha of alphabetArray; let colIndex = index">{{ alphabetArray[colIndex] }}</div>
     </div>
-    <div class="d-flex flex-row" *ngFor="let row of boardgame; let rowIndex = index">
+    <div class="d-flex flex-row" *ngFor="let row of boardGame.board; let rowIndex = index">
       <div class="square index">{{ rowIndex + 1 }}</div>
       <div class="square" *ngFor="let col of row"
       [ngClass]="{'sea': col == 0, 'missed': col == -1, 'hitted': col == 2, 'ship': col == 1}"></div>
