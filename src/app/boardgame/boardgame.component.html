@@ -17,12 +17,12 @@
 <hr>
 <div class="d-flex justify-content-center">
   <div class="m-2">
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedRow">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="coordinates.row">
       <option *ngFor="let alpha of alphabetArray; let i = index" [value]="i">{{ alpha }}</option>
     </select>
   </div>
   <div class="m-2">
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedCol">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="coordinates.col">
       <option *ngFor="let alpha of alphabetArray; let i = index" [value]="i">{{ i + 1 }}</option>
     </select>
   </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Coordinates } from '../model/coordinates';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,12 @@ export class BattleShipService {
     return this.http.get(environment.apiUrl + "/generate")
   }
 
-  hit(row: number, col: number) {
-    return this.http.get(environment.apiUrl + "/hit/" + row + "/" + col)
+  hit(coordinates: Coordinates) {
+    return this.http.post(environment.apiUrl + "/hit", coordinates)
   }
+
+  // hit(row: number, col: number) {
+  //   return this.http.get(environment.apiUrl + "/hit/" + row + "/" + col)
+  // }
 
 }
