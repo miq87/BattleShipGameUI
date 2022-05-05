@@ -26,8 +26,4 @@ export class BattleShipService {
     return this.http.post(environment.apiUrl + "/hit", coordinates)
   }
 
-  // hit(row: number, col: number) {
-  //   return this.http.get(environment.apiUrl + "/hit/" + row + "/" + col)
-  // }
-
 }

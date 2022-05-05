@@ -37,15 +37,6 @@ export class BoardgameComponent implements OnInit {
     })
   }
 
-  // hit() {
-  //   this.battleShipService.hit(this.selectedRow, this.selectedCol).subscribe({
-  //     next: (v: any) => {
-  //       this.boardgame = v
-  //     },
-  //     error: () => console.error("Problem with loading boardgame")
-  //   })
-  // }
-
   generate() {
     this.battleShipService.generateBoardGame().subscribe({
       next: (v: any) => {
