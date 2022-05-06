@@ -19,7 +19,7 @@ export class BoardgameComponent implements OnInit {
 
   ngOnInit(): void {
     this.alphabetArray = Array.from(this.alphabet)
-    this.battleShipService.getBoardGame().subscribe({
+    this.battleShipService.get().subscribe({
       next: (v) => {
         this.boardGame = v
       },
@@ -27,8 +27,8 @@ export class BoardgameComponent implements OnInit {
     })
   }
 
-  generate() {
-    this.battleShipService.generateBoardGame().subscribe({
+  create() {
+    this.battleShipService.create().subscribe({
       next: (v) => {
         this.boardGame = v
       },

@@ -7,12 +7,12 @@
 }
 
 .square {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     border: 2px solid #fff;
     color: #000;
     text-align: center;
-    line-height: 36px;
+    line-height: 30px;
 }
 .index {
     background-color: black;

@@ -11,16 +11,12 @@ export class BattleShipService {
 
   constructor(private http: HttpClient) { }
 
-  getBoardGame() {
+  get() {
     return this.http.get<BoardGame>(environment.apiUrl)
   }
 
-  resetBoardGame() {
-    return this.http.get<BoardGame>(environment.apiUrl + "/reset")
-  }
-
-  generateBoardGame() {
-    return this.http.get<BoardGame>(environment.apiUrl + "/generate")
+  create() {
+    return this.http.get<BoardGame>(environment.apiUrl + "/create")
   }
 
   hit(coordinates: Coordinates) {
