@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BoardGame } from '../model/boardgame';
 import { Coordinates } from '../model/coordinates';
 import { BattleShipService } from '../services/battle-ship.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-boardgame',
@@ -15,7 +16,8 @@ export class BoardgameComponent implements OnInit {
   alphabetArray: any
   coordinates: Coordinates = new Coordinates(0, 0)
 
-  constructor(private battleShipService: BattleShipService) { }
+  constructor(private battleShipService: BattleShipService,
+    public loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.alphabetArray = Array.from(this.alphabet)
