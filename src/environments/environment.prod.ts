@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost:5000/api/battleship"
+  apiUrl: "https://battleship-miq.herokuapp.com/api/battleship"
 };

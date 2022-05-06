@@ -10,7 +10,6 @@ import { BattleShipService } from '../services/battle-ship.service';
 })
 export class BoardgameComponent implements OnInit {
 
-  //boardgame: number[][]
   boardGame: BoardGame;
   alphabet = "ABCDEFGHIJ"
   alphabetArray: any
