@@ -18,7 +18,7 @@
     <div class="d-flex flex-row" *ngFor="let row of boardGame.board; let rowIndex = index">
       <div class="square index">{{ rowIndex + 1 }}</div>
       <div class="square" *ngFor="let col of row"
-        [ngClass]="{'sea': col == 0, 'missed': col == -1, 'hitted': col == 2, 'ship': col == 1}"></div>
+        [ngClass]="{ 'sea': col == 0 || col == 1, 'missed': col == -1, 'hitted': col == 2 }"></div>
     </div>
   </div>
 </div>
