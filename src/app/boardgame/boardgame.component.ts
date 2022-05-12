@@ -3,6 +3,8 @@ import { BoardGame } from '../model/boardgame';
 import { Coordinates } from '../model/coordinates';
 import { BattleShipService } from '../services/battle-ship.service';
 import { LoadingService } from '../services/loading.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-boardgame',
@@ -17,13 +19,14 @@ export class BoardgameComponent implements OnInit {
   coordinates: Coordinates = new Coordinates(0, 0)
 
   constructor(private battleShipService: BattleShipService,
-    public loadingService: LoadingService) { }
+    public loadingService: LoadingService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.alphabetArray = Array.from(this.alphabet)
     this.battleShipService.get().subscribe({
       next: (v) => {
         this.boardGame = v
+        this.openSnackBar(v.message)
       },
       error: () => console.error("Problem with loading boardgame")
     })
@@ -33,6 +36,7 @@ export class BoardgameComponent implements OnInit {
     this.battleShipService.create().subscribe({
       next: (v) => {
         this.boardGame = v
+        this.openSnackBar(v.message)
       },
       error: () => console.error("Problem with loading boardgame")
     })
@@ -42,10 +46,14 @@ export class BoardgameComponent implements OnInit {
     this.battleShipService.hit(this.coordinates).subscribe({
       next: (v) => {
         this.boardGame = v
-        console.log(v)
+        this.openSnackBar(v.message)
       },
       error: () => console.error("Problem with loading boardgame")
     })
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "OK")
   }
 
 }
